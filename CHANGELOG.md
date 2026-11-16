@@ -47,3 +47,6 @@ format:check` passes.
 - Documentation set in English and Simplified Chinese (architecture,
   sidecar protocol, IPC reference, development, testing, build, design
   system).
+
+Archived on Zenodo: [10.5281/zenodo.24277236](https://doi.org/10.5281/zenodo.24277236)
+(concept DOI: [10.5281/zenodo.24277234](https://doi.org/10.5281/zenodo.24277234)).

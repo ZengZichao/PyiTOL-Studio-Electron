@@ -4,6 +4,8 @@
 
 **代码仓库：**[github.com/ZengZichao/PyiTOL-Studio-Electron](https://github.com/ZengZichao/PyiTOL-Studio-Electron) · 引擎：[PyiTOL](https://github.com/ZengZichao/PyiTOL)
 
+[![DOI](https://zenodo.org/badge/24277234.svg)](https://doi.org/10.5281/zenodo.24277234)
+
 [iTOL](https://itol.embl.de) 注释模板桌面工作台 —— 基于 Electron、React 与 Python Sidecar 重建。
 
 PyiTOL Studio 让你在一个原生桌面应用中完成 iTOL 注释模板（数据集、树装饰、元数据、扩展）的编写、校验、预览与上传；模板的生成、解析（"反推"/learn）与 iTOL 上传由后台的 Python 引擎完成。

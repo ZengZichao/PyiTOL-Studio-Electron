@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: 'If you use this software, please cite both the software and the underlying tools.'
 title: 'PyiTOL Studio'
 version: 0.3.0
+doi: 10.5281/zenodo.24277236
 authors:
   - name: 'Zichao Zeng'
     orcid: 'https://orcid.org/0000-0001-6553-970X'
