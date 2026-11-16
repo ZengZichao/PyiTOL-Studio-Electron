@@ -31,11 +31,6 @@
       'contents':
         [{ 'x': 130, 'y': 220 }, { 'x': 410, 'y': 220, 'type': 'link', 'path': '/Applications' }]
     },
-  'publish':
-    {
-      'provider': 'github',
-      'owner': 'ZengZichao',
-      'repo': 'PyiTOL-Studio-Electron'
-    },
+  'publish': { 'provider': 'github', 'owner': 'ZengZichao', 'repo': 'PyiTOL-Studio-Electron' },
   'afterSign': 'build/notarize.cjs'
 }
