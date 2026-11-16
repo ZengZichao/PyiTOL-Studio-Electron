@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+**Repository:** [github.com/ZengZichao/PyiTOL-Studio-Electron](https://github.com/ZengZichao/PyiTOL-Studio-Electron) · Engine: [PyiTOL](https://github.com/ZengZichao/PyiTOL)
+
 Desktop workbench for [iTOL](https://itol.embl.de) annotation templates — rebuilt with Electron, React, and a Python sidecar.
 
 PyiTOL Studio lets you compose, validate, preview and upload iTOL annotation templates (datasets, tree decorations, metadata, extensions) from a native desktop app, with a Python engine doing the template generation, parsing ("learning") and iTOL upload behind the scenes.

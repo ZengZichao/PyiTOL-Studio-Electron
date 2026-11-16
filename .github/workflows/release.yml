@@ -1,9 +1,16 @@
 name: Release
 
+# Manual release workflow. The macOS artefact must bundle the Python sidecar
+# (PyInstaller onedir under resources/sidecar/dist), which is built locally
+# with the `pyitol` engine — see docs/en/build.md. Run this workflow only
+# after the sidecar has been made available to the runner; the verify step
+# fails fast otherwise instead of publishing a broken app.
 on:
-  push:
-    tags:
-      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (e.g. v0.3.0)'
+        required: true
 
 permissions:
   contents: write
@@ -21,10 +28,17 @@ jobs:
 
       - run: npm ci
 
+      - name: Verify sidecar bundle
+        run: |
+          test -d resources/sidecar/dist || {
+            echo "::error::resources/sidecar/dist is missing. Build the Python sidecar first (docs/en/build.md) and make it available to the runner."
+            exit 1
+          }
+
       - name: Build macOS app
         env:
-          # The release artefact is ad-hoc signed unless a Developer ID
-          # certificate is injected as CSC_LINK / CSC_KEY_PASSWORD.
+          # Ad-hoc signed unless a Developer ID certificate is injected as
+          # CSC_LINK / CSC_KEY_PASSWORD.
           CSC_IDENTITY_AUTO_DISCOVERY: false
         run: npm run build:mac
 
@@ -34,7 +48,6 @@ jobs:
           path: dist/*
 
       - name: Publish GitHub release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: dist/*
-          generate_release_notes: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ github.event.inputs.tag }}" dist/* --title "${{ github.event.inputs.tag }}" --generate-notes

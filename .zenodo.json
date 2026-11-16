@@ -1,0 +1,32 @@
+{
+  "title": "PyiTOL Studio",
+  "description": "Desktop workbench for iTOL annotation templates — Electron + React frontend with a Python sidecar for template generation, learning and iTOL upload",
+  "creators": [
+    {
+      "name": "Zeng, Zichao",
+      "orcid": "0000-0001-6553-970X"
+    }
+  ],
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "language": "eng",
+  "keywords": ["phylogenetics", "visualization", "iTOL", "bioinformatics", "desktop", "Electron"],
+  "related_identifiers": [
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/ZengZichao/PyiTOL-Studio-Electron",
+      "relation": "isSupplementTo"
+    },
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/ZengZichao/PyiTOL",
+      "relation": "isSupplementTo"
+    },
+    {
+      "scheme": "url",
+      "identifier": "https://github.com/ZengZichao/PyiTOL-Studio",
+      "relation": "isVersionOf"
+    }
+  ]
+}
