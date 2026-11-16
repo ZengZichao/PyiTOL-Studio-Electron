@@ -13,6 +13,10 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+# The Playwright Electron smoke suite (`npm run test:e2e`) needs the compiled
+# `out/` app *and* a packaged Python sidecar (PyInstaller onedir bundle), so it
+# runs in local/packaging environments rather than in this workflow. Everything
+# that does not need the sidecar is gated here.
 jobs:
   quality:
     runs-on: ubuntu-latest
@@ -29,17 +33,3 @@ jobs:
       - run: npm run lint
       - run: npm run format:check
       - run: npm run build
-
-  e2e:
-    runs-on: macos-14
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
-      - run: npm run build
-      - run: npm run test:e2e

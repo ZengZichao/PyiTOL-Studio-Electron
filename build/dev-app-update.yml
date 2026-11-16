@@ -1,2 +1,6 @@
+# Development-only update feed placeholder used by electron-builder when
+# testing auto-update locally. Replace with a real feed (or configure the
+# `publish` section in electron-builder.yml) before releasing — see
+# docs/en/build.md.
 provider: generic
 url: https://pyitol-studio.example.com/releases/
