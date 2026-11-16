@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: 'If you use this software, please cite both the software and the underlying tools.'
+title: 'PyiTOL Studio'
+version: 0.3.0
+authors:
+  - name: 'Zichao Zeng'
+    orcid: 'https://orcid.org/0000-0001-6553-970X'
+repository-code: 'https://github.com/ZengZichao/PyiTOL-Studio'
+license: MIT
+type: software
+contact:
+  - email: 'zengzichao@sjtu.edu.cn'
+keywords:
+  - phylogenetics
+  - visualization
+  - iTOL
+  - bioinformatics
+  - desktop
+references:
+  - type: article
+    authors:
+      - family-names: 'Zeng'
+        given-names: 'Zichao'
+    title: 'PyiTOL: reproducible Python workflows for iTOL annotation and taxonomic monophyly assessment'
+    year: 2026
+    journal: 'bioRxiv'
+    doi: '10.64898/2026.08.27.747471'
+  - type: article
+    authors:
+      - family-names: 'Letunic'
+        given-names: 'Ivica'
+      - family-names: 'Bork'
+        given-names: 'Peer'
+    title: 'Interactive Tree Of Life (iTOL) v5: an online tool for phylogenetic tree display and annotation'
+    year: 2021
+    journal: 'Nucleic Acids Research'
+    volume: 49
+    issue: 'W1'
+    pages: 'W293-W296'
+    doi: '10.1093/nar/gkab301'

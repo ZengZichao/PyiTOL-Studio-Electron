@@ -1,0 +1,10 @@
+# 统一换行符：仓库内一律 LF（Prettier endOfLine=lf）
+* text=auto eol=lf
+
+# 二进制资源
+*.png binary
+*.icns binary
+*.ico binary
+*.dmg binary
+*.zip binary
+*.blockmap binary

@@ -1,0 +1,27 @@
+# Pre-commit hooks for PyiTOL Studio.
+# Install once:  pip install pre-commit && pre-commit install
+# Run on demand:  pre-commit run --all-files
+#
+# Mirrors the CI gates (ESLint + Prettier) so issues are caught locally
+# before push, instead of only failing in CI.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: npx prettier --write
+        language: system
+        types: [text]
+        files: \.(ts|tsx|js|cjs|mjs|json|md|yaml|yml|css|html)$
+      - id: eslint
+        name: eslint
+        entry: npx eslint
+        language: system
+        files: \.(ts|tsx)$

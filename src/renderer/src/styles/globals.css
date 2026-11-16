@@ -1,0 +1,488 @@
+@import 'tailwindcss';
+
+/*
+ * PyiTOL Studio — Design System
+ *
+ * Single source of truth: DESIGN.md (Apple marketing spec, adapted for desktop)
+ * Project overrides:
+ *   1. Accent colour → brand: #002FA7 (IKB) light / #2e5cff dark
+ *   2. Brand mark: monochrome phylogenetic tree
+ *   3. Light + dark themes, equally maintained
+ *   4. Desktop tool density: 13px base + monospace data font for tables/forms
+ *
+ * Every token is defined in @theme so Tailwind generates utility classes.
+ * Do NOT introduce a second accent colour. Do NOT add gradients.
+ * Do NOT use --x: var(--x) self-referencing inside @theme.
+ */
+
+/* ─── Tailwind v4 theme tokens ──────────────────────────────────────── */
+/* ALL design tokens that should generate utility classes MUST be      */
+/* declared inside @theme. Variables in :root are plain CSS vars.      */
+
+@theme {
+  /* ── Colors (real values, not self-referencing) ── */
+  --color-canvas: #ffffff;
+  --color-parchment: #f5f5f7;
+  --color-pearl: #f0f0f2;
+  --color-ink: #1d1d1f;
+  --color-ink-muted: #333333;
+  --color-ink-subtle: #6e6e73;
+  --color-accent: #002fa7;
+  --color-accent-fg: #ffffff;
+  --color-hairline: #d9d9de;
+  --color-divider-soft: #eaeaee;
+  --color-bg-card: #ffffff;
+  --color-surface-chip: #d2d2d7;
+  --color-surface-selected: #e8e8ed;
+  --color-danger: #c92a2a;
+  --color-danger-surface: rgba(201, 42, 42, 0.08);
+  --color-danger-fg: #c92a2a;
+  --color-success: #2b8a3e;
+  --color-success-surface: rgba(43, 138, 62, 0.08);
+  --color-warning: #d9832e;
+  --color-warning-surface: rgba(217, 131, 46, 0.08);
+  --color-accent-surface: rgba(0, 47, 167, 0.06);
+  --color-accent-surface-strong: rgba(0, 47, 167, 0.12);
+
+  /* ── Fonts ── */
+  --font-display: 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-text: 'SF Pro Text', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* ── Font sizes (desktop tool density) ── */
+  --text-hero: 56px;
+  --text-hero--line-height: 1.07;
+  --text-hero--letter-spacing: -0.28px;
+  --text-hero--font-weight: 600;
+
+  --text-display-lg: 40px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--font-weight: 600;
+
+  --text-display-md: 34px;
+  --text-display-md--line-height: 1.47;
+  --text-display-md--letter-spacing: -0.374px;
+  --text-display-md--font-weight: 600;
+
+  --text-lead: 28px;
+  --text-lead--line-height: 1.14;
+  --text-lead--letter-spacing: 0.196px;
+
+  --text-lead-airy: 24px;
+  --text-lead-airy--line-height: 1.5;
+  --text-lead-airy--font-weight: 300;
+
+  --text-tagline: 21px;
+  --text-tagline--line-height: 1.19;
+  --text-tagline--letter-spacing: 0.231px;
+  --text-tagline--font-weight: 600;
+
+  --text-body-strong: 15px;
+  --text-body-strong--line-height: 1.24;
+  --text-body-strong--letter-spacing: -0.2px;
+  --text-body-strong--font-weight: 600;
+
+  --text-body: 13px;
+  --text-body--line-height: 1.5;
+  --text-body--letter-spacing: -0.1px;
+
+  --text-caption: 12px;
+  --text-caption--line-height: 1.43;
+  --text-caption--letter-spacing: -0.12px;
+
+  --text-caption-strong: 12px;
+  --text-caption-strong--line-height: 1.29;
+  --text-caption-strong--letter-spacing: -0.12px;
+  --text-caption-strong--font-weight: 600;
+
+  --text-button-utility: 12px;
+  --text-button-utility--line-height: 1.29;
+  --text-button-utility--letter-spacing: -0.12px;
+
+  --text-fine-print: 11px;
+  --text-fine-print--line-height: 1.45;
+  --text-fine-print--letter-spacing: -0.06px;
+
+  --text-micro: 10px;
+  --text-micro--line-height: 1.4;
+  --text-micro--letter-spacing: -0.04px;
+
+  --text-nav-link: 11px;
+  --text-nav-link--line-height: 1.45;
+  --text-nav-link--letter-spacing: -0.06px;
+
+  /* ── Rounded scale ── */
+  --radius-none: 0px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* ── Spacing scale (Tailwind v4 --spacing-* namespace) ── */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-section: 80px;
+
+  /* ── Shadows ── */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-3: 0 8px 32px rgba(0, 0, 0, 0.14);
+  --shadow-product: 3px 5px 30px 0 rgba(0, 0, 0, 0.22);
+
+  /* ── Focus ring ── */
+  --focus-ring: 2px solid #0035b8;
+}
+
+/* ─── Light Theme (default, real values in @theme) ─────────────────── */
+
+:root {
+  /* Component-level shortcuts (non-utility CSS vars) */
+  --btn-primary-padding: 8px 18px;
+  --btn-utility-padding: 6px 14px;
+  --btn-pearl-padding: 6px 12px;
+  --card-padding: 16px;
+  --card-border: 1px solid var(--color-hairline);
+
+  color-scheme: light;
+}
+
+/* ─── Dark Theme ────────────────────────────────────────────────────── */
+
+.dark {
+  /* Override theme colors for dark mode */
+  --color-canvas: #1d1d1f;
+  --color-parchment: #272729;
+  --color-pearl: #3a3a3c;
+  --color-ink: #ffffff;
+  --color-ink-muted: #cccccc;
+  --color-ink-subtle: #98989d;
+  --color-accent: #6b8bff;
+  --color-accent-fg: #ffffff;
+  --color-hairline: #3a3a3c;
+  --color-divider-soft: #2a2a2c;
+  --color-bg-card: #2a2a2c;
+  --color-surface-chip: #48484a;
+  --color-surface-selected: #3a3a3c;
+  --color-danger: #ff6b6b;
+  --color-danger-surface: rgba(255, 107, 107, 0.12);
+  --color-danger-fg: #ff6b6b;
+  --color-success: #51cf66;
+  --color-success-surface: rgba(81, 207, 102, 0.1);
+  --color-warning: #e8983a;
+  --color-warning-surface: rgba(232, 152, 58, 0.12);
+  --color-accent-surface: rgba(107, 139, 255, 0.1);
+  --color-accent-surface-strong: rgba(107, 139, 255, 0.16);
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-3: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-product: 3px 5px 30px 0 rgba(0, 0, 0, 0.5);
+
+  --focus-ring: 2px solid #6b8bff;
+
+  --card-border: 1px solid var(--color-hairline);
+
+  color-scheme: dark;
+}
+
+/* ─── Base layer ────────────────────────────────────────────────────── */
+
+@layer base {
+  * {
+    border-color: var(--color-hairline);
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-text);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    letter-spacing: var(--text-body--letter-spacing);
+    color: var(--color-ink);
+    background-color: var(--color-canvas);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* user-select: none only for UI chrome, not content */
+    user-select: none;
+  }
+
+  /* Allow text selection in content areas */
+  pre,
+  code,
+  td,
+  th,
+  input,
+  textarea,
+  [data-selectable] {
+    user-select: text;
+  }
+
+  /* Native control theming */
+  input[type='checkbox'],
+  input[type='radio'] {
+    accent-color: var(--color-accent);
+  }
+
+  input[type='color'] {
+    accent-color: var(--color-accent);
+  }
+
+  /* Keyboard focus ring */
+  :focus-visible {
+    outline: var(--focus-ring);
+    outline-offset: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-hairline);
+    border-radius: var(--radius-full);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink-subtle);
+  }
+
+  /* Code / monospace blocks */
+  code,
+  pre,
+  .font-mono {
+    font-family: var(--font-mono);
+    font-feature-settings: 'tnum';
+  }
+
+  /* Drag region for macOS hiddenInset title bar */
+  .drag-region {
+    -webkit-app-region: drag;
+  }
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ─── Component utilities ───────────────────────────────────────────── */
+
+@layer components {
+  /* button-primary — the signature action button */
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-accent-fg);
+    font-family: var(--font-text);
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    padding: var(--btn-primary-padding);
+    border: none;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      transform 0.1s ease,
+      box-shadow 0.15s ease;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xxs);
+    white-space: nowrap;
+  }
+  .btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 85%, black 15%);
+  }
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* button-pearl — secondary card button */
+  .btn-pearl {
+    background-color: var(--color-pearl);
+    color: var(--color-ink);
+    font-family: var(--font-text);
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-sm);
+    padding: var(--btn-pearl-padding);
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      transform 0.1s ease;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xxs);
+    white-space: nowrap;
+  }
+  .btn-pearl:hover {
+    background-color: var(--color-surface-selected);
+    border-color: var(--color-ink-subtle);
+  }
+  .btn-pearl:active {
+    transform: scale(0.97);
+  }
+  .btn-pearl:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* text-link */
+  .text-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+  .text-link:hover {
+    text-decoration: underline;
+  }
+
+  /* store-utility-card */
+  .card {
+    background-color: var(--color-bg-card);
+    color: var(--color-ink);
+    border: var(--card-border);
+    border-radius: var(--radius-lg);
+    padding: var(--card-padding);
+  }
+
+  /* Standard form input */
+  .input-field {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-text);
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    width: 100%;
+    min-height: 32px;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .input-field:focus {
+    border-color: var(--color-accent);
+  }
+  .input-field::placeholder {
+    color: var(--color-ink-subtle);
+  }
+
+  /* Select dropdown */
+  .input-select {
+    appearance: none;
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-text);
+    font-size: var(--text-caption);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-sm);
+    padding: 6px 28px 6px 10px;
+    width: 100%;
+    min-height: 32px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236e6e73' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+  .input-select:focus {
+    border-color: var(--color-accent);
+    outline: none;
+  }
+
+  /* Hairline divider */
+  .hairline {
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  /* Caption-density label for inspector/form */
+  .field-label {
+    font-family: var(--font-text);
+    font-size: var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    color: var(--color-ink-muted);
+    font-weight: 400;
+  }
+  .field-label-strong {
+    font-family: var(--font-text);
+    font-size: var(--text-caption-strong);
+    line-height: var(--text-caption-strong--line-height);
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  /* Monospace data cell */
+  .cell-mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-caption);
+    font-feature-settings: 'tnum';
+  }
+
+  /* iTOL template syntax highlighting — theme-aware */
+  .hl-header {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+  .hl-section {
+    color: var(--color-warning);
+    font-weight: 600;
+  }
+  .hl-key {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+  .hl-value {
+    color: var(--color-ink-muted);
+  }
+  .hl-value-color {
+    color: #a83279;
+  }
+  .dark .hl-value-color {
+    color: #e64980;
+  }
+  .hl-data {
+    color: var(--color-ink-subtle);
+  }
+  .hl-comment {
+    color: var(--color-ink-subtle);
+    font-style: italic;
+  }
+}
